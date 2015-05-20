@@ -4,11 +4,14 @@
 #include <boost/thread.hpp>
 #include <string>
 
+#define WIDTH 700
+#define HEIGHT 500
+
 int main(void)
 {
   Framebuffer *framebuffer = new Framebuffer();
 
-  framebuffer->init();
+  framebuffer->init(WIDTH, HEIGHT);
   framebuffer->bind();
 
   unsigned int iteration = 0;

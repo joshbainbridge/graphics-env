@@ -1,15 +1,17 @@
 #ifndef FRAMEBUFFER_H__
-	#define FRAMEBUFFER_H__
-	
+  #define FRAMEBUFFER_H__
+  
   #include <PlatformSpecification.h>
   #include <string>
 
-	class Framebuffer
-	{
-	public:
-		Framebuffer()
+  class Framebuffer
+  {
+  public:
+    Framebuffer()
       : m_update(true)
       , m_pan(false)
+      , m_res_x(700.f)
+      , m_res_y(500.f)
       , m_screen_x(0.f)
       , m_screen_y(0.f)
       , m_state_x(0.f)
@@ -20,13 +22,14 @@
     {;}
 
     ~Framebuffer();
-    void init();
+    GLFWwindow* init(const int _resx, const int _resy, void* input_data = NULL);
     void bind();
     void draw();
     bool close();
+    void image(const float *_image, const int _resx, const int _resy);
     void title(const std::string &_title);
 
-	private:
+  private:
     GLFWwindow* m_window;
     GLuint m_texture;
     GLuint m_shader_program;
@@ -49,10 +52,11 @@
   private:
     bool m_update;
     bool m_pan;
+    float m_res_x, m_res_y;
     float m_screen_x, m_screen_y;
     float m_state_x, m_state_y;
     float m_trans_x, m_trans_y;
     float m_scale;
-	};
-	
+  };
+  
 #endif
