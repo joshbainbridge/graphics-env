@@ -77,7 +77,7 @@ bool Framebuffer::close()
 void Framebuffer::image(const float *_image, const int _resx, const int _resy)
 {
   glBindTexture(GL_TEXTURE_2D, m_texture);
-  glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, _resx, _resy, 0, GL_RGB, GL_FLOAT, _image);
+  glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, _resx, _resy, GL_RGB, GL_FLOAT, _image);
 }
 
 void Framebuffer::title(const std::string &_title)
@@ -157,7 +157,7 @@ void Framebuffer::createSurface()
 
   glGenTextures(1, &m_texture);
   glBindTexture(GL_TEXTURE_2D, m_texture);
-  // glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 10, 10, 0, GL_RGB, GL_FLOAT, pixels);
+  glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 10, 10, 0, GL_RGB, GL_FLOAT, NULL);
 
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);

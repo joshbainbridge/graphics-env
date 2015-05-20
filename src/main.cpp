@@ -7,7 +7,7 @@
 #define WIDTH 700
 #define HEIGHT 500
 
-int main(void)
+int main(int argc, char const *argv[])
 {
   Framebuffer *framebuffer = new Framebuffer();
 
@@ -36,5 +36,5 @@ int main(void)
 
   delete framebuffer;
 
-  exit(EXIT_SUCCESS);
+  return 0;
 }
