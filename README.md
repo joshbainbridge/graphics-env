@@ -1,7 +1,7 @@
 Graphics Environment:
 =======
 
-Project description goes here.
+This is a C++ project that creates a framebuffer for OpenGL, it is used as a basic framework for later graphic projects.
 
 Required dependencies are:
 
