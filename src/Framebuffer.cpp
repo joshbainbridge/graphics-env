@@ -185,7 +185,7 @@ void Framebuffer::createContext()
   m_window = glfwCreateWindow(m_res_x, m_res_y, "Graphics Environment", NULL, NULL);
 
   glfwMakeContextCurrent(m_window);
-  glfwSwapInterval(false);
+  glfwSwapInterval(true);
   
   GLenum opengl_error = glGetError();
   if(opengl_error != GL_NO_ERROR)
